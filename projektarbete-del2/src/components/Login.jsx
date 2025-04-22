@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 function Login() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("Angelika");
+  const [password, setPassword] = useState("password");
 
   const [token, setToken] = useState("");
 
@@ -75,7 +75,7 @@ function Login() {
       {movies.length > 0 && (
         <ul>
           {movies.map((film) => (
-            <li key={film.id}>{film.title}</li>
+            <li key={film.id}><strong>{film.title}</strong> ({film.productionYear}) - <i>{film.director}</i></li>
           ))}
         </ul>
       )}
