@@ -10,8 +10,15 @@ afterAll(() => server.close());
 it('hämtar och visar filmer efter inloggning'
     , async () => {
         render(<Login />);
+
+        const usernameTextField = screen.getByPlaceholderText("Användarnamn");
+        const passwordTextField = screen.getByPlaceholderText("Lösenord");
         const button = screen.getByRole('button');
+
+        fireEvent.change(usernameTextField, { target: { value: 'Angelika' } });
+        fireEvent.change(passwordTextField, { target: { value: 'password' } });
         fireEvent.click(button);
+
         await waitFor(() => {
             expect(screen.getByText(/The Matrix/)).toBeInTheDocument();
             expect(screen.getByText(/1999/)).toBeInTheDocument();

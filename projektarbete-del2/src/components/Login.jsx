@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 function Login() {
-  const [username, setUsername] = useState("Angelika");
-  const [password, setPassword] = useState("password");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const [token, setToken] = useState("");
 
@@ -27,7 +27,6 @@ function Login() {
     }
 
     const jwt = await res.text();
-    console.log("JWT-token:", jwt);
     setToken(jwt);
 
     const moviesRes = await fetch(
