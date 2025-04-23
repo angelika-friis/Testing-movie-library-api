@@ -71,7 +71,7 @@ describe("GET /movies", () => {
     const data = await res.json();
     expect(res.status).toBe(200);
     expect(Array.isArray(data)).toBe(true);
-    expect(data.length).toBe(1);
+    expect(data.length).toBe(2);
   });
 
   test("GET /movies/{id} returnerar rätt film", async () => {
